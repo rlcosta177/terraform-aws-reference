@@ -8,7 +8,7 @@
 ### terraform destroy -target [resource (ex: aws_instance.web-server-instance)] -> removes a single specified resource
 ### terraform apply -target [resource (ex: aws_instance.web-server-instance)] -> creates a single specified resource
 ### specify the provider | change the values of the variables every time you launch aws 
-
+11) you wont be able to commit your changes if you hardcode the credentials, they have to be saved to the credentials file
 
 
 
