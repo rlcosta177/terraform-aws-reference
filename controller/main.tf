@@ -1,8 +1,6 @@
+# the credentials are in the config and credentials files at home/.aws | C:\Users\<username>\.aws
 provider "aws" {
     region = "us-east-1"
-    access_key = "ASIAU6GDWVFNWPFZ3QFR"
-    secret_key = "ASwNPjh6IkhSOe/GhEEk2uaMp5a6f+PQW1MrFXr6"
-    token = "FwoGZXIvYXdzEIj//////////wEaDKG7qleKNcoDpTtIkyK+AQ88ROFxIpN3eI/Z59cBdBpCKRjID8kggn+s3Jgx/tDBbn51qUZYryAOYCR/DIB7bi69mr2FkhXGhBha45Xh4XY+b9zSBgCGpWDbR4xBSoHFFaspLjP5mlUjfBu5HLxXV77MVtXxF993rl7JU7/SeQLVSqckamVak5CHxYgfRPQwxmAtWmph3XKSRN9MaPEDA7193wqCFLm3jWjUnOgIZqEjmjVOuBG+HAdNUaqwSKHQMM7KGVHYyJklaI8k8WEo8pWGsAYyLXVnrogv4b602ejXbv84Fag/9CBJe+7JsTm87711jHIssl91ziTARbTRgmSoNg=="
 }
     
 # VPC == private lan
