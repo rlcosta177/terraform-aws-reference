@@ -1,35 +1,72 @@
-## IMPORTANT COMMANDS TO REMEMBER
+# Important Commands to Remember
 
-- `terraform state`: A bunch of commands for future use.
-- `terraform state list`: Displays all the existing resources created after the `terraform apply`.
-- `terraform state show`: Displays detailed information about a specific resource (use after the command above for ease of use).
-- `terraform output`: Shows the output variables after `terraform apply` (used in testing environment).
-- `terraform refresh`: Similar to `terraform output` but better used in a production environment.
-- `terraform destroy -target [resource]`: Removes a single specified resource.
-- `terraform apply -target [resource]`: Creates a single specified resource.
-- Specify the provider | Change the values of the variables every time you launch AWS. You won't be able to commit your changes if you hardcode the credentials; they have to be saved to the credentials file.
+## Terraform State Management
+- `terraform state`: A suite of commands for managing the state.
+- `terraform state list`: Lists all resources created after running `terraform apply`.
+- `terraform state show <resource>`: Shows detailed information about a specific resource. Use this after `terraform state list` for ease.
+- `terraform output`: Displays the output variables post `terraform apply`. Useful in testing environments.
+- `terraform refresh`: Refreshes the state file to match the real infrastructure. Preferred for production environments.
 
-## AWS CONFIGURATION
+## Resource Management
+- `terraform destroy -target <resource>`: Removes a specified resource.
+- `terraform apply -target <resource>`: Creates a specified resource.
 
-1. [Install AWS CLI on Windows/Linux/Mac](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-2. On the command prompt/terminal, run `aws configure`, then add the keys in the AWS details (awsacademy.instructure.com/courses), add the region, and format (I use JSON). 
-   - Reference: [Stack Overflow - Unable to Find AWS Directory](https://stackoverflow.com/questions/46455908/unable-to-find-aws-directory)
-3. ON LINUX: `home/.aws` | ON WINDOWS: `C:/Users/username/.aws`
-4. The config file will already be configured.
-5. If using AWS Academy (school), add the token given in the AWS Learner Lab Launcher (red circle icon in the tab).
-6. The variables of the credentials file have to be exactly like this (at least on Windows): `aws_access_key_id`, `aws_secret_access_key`, `aws_session_token`.
-7. For Linux it should be: `access_key`, `secret_key`, `token`.
-8. For this error: 'Error: No valid credential sources found', add the variable 'shared_credentials_files' to the provider "aws" function in main.tf.
+## Best Practices
+- **Specify the Provider:** Update variable values each time you launch AWS. Avoid hardcoding credentials; save them to the credentials file to enable commits.
 
-## Terraform installation(deb linux)
+# AWS Configuration
 
-1. sudo apt-get update
-2. sudo apt-get install -y wget unzip
-3. wget https://releases.hashicorp.com/terraform/1.5.2/terraform_1.5.2_linux_amd64.zip
-4. unzip terraform_1.5.2_linux_amd64.zip
-5. sudo mv terraform /usr/local/bin/
-6. terraform --version
+1. **Install AWS CLI:**
+   - [Windows/Linux/Mac Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-  ### create a symbolic link for terraform
-  - sudo ln -s /usr/local/bin/terraform /usr/local/bin/tf
-  - tf --version
+2. **Configure AWS CLI:**
+   - Run `aws configure` in the command prompt or terminal.
+   - Enter keys from AWS details (found at awsacademy.instructure.com/courses).
+   - Set the region and format (JSON is recommended).
+
+   - Reference: [Unable to Find AWS Directory - Stack Overflow](https://stackoverflow.com/questions/46455908/unable-to-find-aws-directory)
+
+3. **Configuration File Locations:**
+   - **Linux:** `~/.aws`
+   - **Windows:** `C:/Users/<username>/.aws`
+
+4. **Pre-configured Config File:**
+   - Your config file will already be set up.
+
+5. **Using AWS Academy:**
+   - Add the token from the AWS Learner Lab Launcher (red circle icon in the tab).
+
+6. **Credentials File Variables:**
+   - **Windows:** 
+     ```
+     aws_access_key_id
+     aws_secret_access_key
+     aws_session_token
+     ```
+   - **Linux(im not sure if thats how it is):**
+     ```
+     access_key
+     secret_key
+     token
+     ```
+
+7. **Handling Credential Errors:**
+   - For errors like 'Error: No valid credential sources found', add the variable `shared_credentials_files` to the provider "aws" function in `main.tf`.
+
+# Terraform Installation on Debian-based Linux
+
+1. Update the package list:
+   ```sh
+   sudo apt-get update
+   sudo apt-get install -y wget unzip
+   wget https://releases.hashicorp.com/terraform/1.5.2/terraform_1.5.2_linux_amd64.zip
+   unzip terraform_1.5.2_linux_amd64.zip
+   sudo mv terraform /usr/local/bin/
+   terraform --version
+   ```
+
+2. Create a symbolic link for terraform
+   ```sh
+   sudo ln -s /usr/local/bin/terraform /usr/local/bin/tf
+   tf --version
+   ```
