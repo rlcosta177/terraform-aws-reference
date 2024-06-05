@@ -23,6 +23,8 @@
    - Run `aws configure` in the command prompt or terminal.
    - Enter keys from AWS details (found at awsacademy.instructure.com/courses).
    - Set the region and format (JSON is recommended).
+   - `nano .aws/credentials
+      - add the aws token as well(found at awsacademy.instructure.com/courses as well)
 
    - Reference: [Unable to Find AWS Directory - Stack Overflow](https://stackoverflow.com/questions/46455908/unable-to-find-aws-directory)
 
