@@ -20,3 +20,16 @@
 6. The variables of the credentials file have to be exactly like this (at least on Windows): `aws_access_key_id`, `aws_secret_access_key`, `aws_session_token`.
 7. For Linux it should be: `access_key`, `secret_key`, `token`.
 8. For this error: 'Error: No valid credential sources found', add the variable 'shared_credentials_files' to the provider "aws" function in main.tf.
+
+## Terraform installation(deb linux)
+
+1. sudo apt-get update
+2. sudo apt-get install -y wget unzip
+3. wget https://releases.hashicorp.com/terraform/1.5.2/terraform_1.5.2_linux_amd64.zip
+4. unzip terraform_1.5.2_linux_amd64.zip
+5. sudo mv terraform /usr/local/bin/
+6. terraform --version
+
+  ### create a symbolic link for terraform
+  - sudo ln -s /usr/local/bin/terraform /usr/local/bin/tf
+  - tf --version
